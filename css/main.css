@@ -1,0 +1,202 @@
+
+body {
+    margin: 0;
+    background-color: #eef0f3;
+}
+
+.hide {
+    display: none;
+}
+
+li {
+    width: 20%;
+    text-align: center;
+}
+
+ul {
+    top: 0;
+    margin: 0 auto;
+    position: sticky;
+    z-index: 2;
+    width: 100%;
+    background-color: #21a675;
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-block-start: 1em;
+    padding-left: 0;
+}
+
+hr {
+    width: 0;
+    height: 5px;
+    border: 0;
+    background-color: transparent;
+}
+
+.scale1 {
+    transition: width .5s linear;
+    width: 100%;
+}
+
+.scale2 {
+    transition: width .2s linear;
+    width: 0;
+}
+
+#workplace {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+li > img {
+    width: 30px;
+}
+
+.task {
+    position: relative;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow: auto;
+    height: 100%;
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 5px;
+}
+
+.task:hover {
+    box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302),
+    0 1px 3px 1px rgba(60, 64, 67, 0.149)
+}
+
+.task > div[contenteditable=true] {
+    width: 100%;
+    min-height: 60px;
+    max-height: 400px;
+    position: relative;
+    overflow: auto;
+}
+
+.task > div[contenteditable=false] {
+    width: 100%;
+    height: 40px;
+    position: relative;
+}
+
+div::-webkit-scrollbar {
+    display: none;
+}
+
+.task > div:focus {
+    outline: none;
+}
+
+.task input {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.del {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 30px;
+    height: 30px;
+}
+
+.recover {
+    position: absolute;
+    left: calc(50% - 30px);
+    right: calc(50% - 30px);
+    bottom: 0;
+    width: 30px;
+    height: 30px;
+}
+
+#unfinished, #finished, #Bin {
+    width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
+    column-width: 338px;
+    -moz-column-width: 338px;
+    -webkit-column-width: 338px;
+    column-gap: 40px;
+    -moz-column-gap: 40px;
+    -webkit-column-gap: 40px;
+    overflow: auto;
+    min-height: calc(100vh - 50px);
+}
+
+@media screen and (max-aspect-ratio: 17/10) {
+    #Bin {
+        background-size: auto 100%;
+    }
+}
+
+@media screen and (min-aspect-ratio: 17/10) {
+    #Bin {
+        background-size: 100% auto;
+    }
+}
+
+@media screen and (max-aspect-ratio: 13/10) {
+    #unfinished {
+        background-size: auto 100%;
+    }
+}
+
+@media screen and (min-aspect-ratio: 13/10) {
+    #unfinished {
+        background-size: 100% auto;
+    }
+}
+
+@media screen and (max-aspect-ratio: 1/1) {
+    #finished {
+        background-size: auto 100%;
+    }
+}
+
+@media screen and (min-aspect-ratio: 1/1) {
+    #finished {
+        background-size: 100% auto;
+    }
+}
+
+#unfinished {
+    background: url(../img/reminder.png) no-repeat center fixed;
+}
+
+
+#finished {
+    background: url(../img/completed.png) no-repeat center fixed;
+}
+
+
+#Bin {
+    background: url(../img/throw_away.png) no-repeat center fixed;
+}
+
+
+#add {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    z-index: 2;
+    right: 20px;
+    bottom: 20px;
+    box-shadow: 0 50px 5px #e7e8e9;
+}
+
+#add:hover {
+    transform: scale(1.1);
+}

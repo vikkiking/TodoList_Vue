@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>TodoList</title>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body >
+<ul>
+    <li onmouseenter="choose(this)">
+        <img src="img/timer.png" alt="">
+        <hr style="background-color: #a4e2c6">
+    </li>
+    <li onmouseenter="choose(this)">
+        <img src="img/checkbox.png" alt="">
+        <hr>
+    </li>
+    <li onmouseenter="choose(this)">
+        <img src="img/trash-bin.png" alt="">
+        <hr>
+    </li>
+</ul>
+<div id="workplace">
+    <div id="unfinished" class="reminder">
+    </div>
+    <div id="finished" class="hide">
+    </div>
+    <div id="Bin" class="hide">
+    </div>
+</div>
+<img src="img/add.png" id="add" onclick="addTask();" alt="">
+
+<script src="js/main.js">
+</script>
+</body>
+</html>
