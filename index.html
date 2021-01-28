@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>TodoList</title>
-    <script src="js/main.js"></script>
+    <script src="js/vue.min.js"></script>
     <link rel="stylesheet" href="css/main.css">
 </head>
-<body >
+<body onload="choose(Default);init()">
 <ul>
     <li onmouseenter="choose(this)">
         <img src="img/timer.png" alt="">
@@ -22,16 +22,26 @@
     </li>
 </ul>
 <div id="workplace">
-    <div id="unfinished" class="reminder">
+    <div id="unfinished" :class={hide:hide}>
+        <todo-item v-for="todo in tasks" :todo="todo" :editable="editable" class="task"
+                   onmouseover="vis(this)" onmouseleave="hide(this)"
+                   :id="todo.id" @del-task="delTask" :disabled="disabled" @deal="Done"
+        ></todo-item>
     </div>
-    <div id="finished" class="hide">
+    <div id="finished" :class={hide:hide}>
+        <todo-item v-for="todo in tasks" :todo="todo" :editable="editable" class="task"
+                   onmouseover="vis(this)" onmouseleave="hide(this)"
+                   :id="todo.id" @del-task="delTask" :disabled="disabled" @deal="cancel"
+        ></todo-item>
     </div>
-    <div id="Bin" class="hide">
+    <div id="bin" :class={hide:hide}>
+        <todo-item v-for="todo in tasks" :todo="todo" :editable="editable" class="task"
+                   onmouseover="vis(this)" onmouseleave="hide(this)"
+                   :id="todo.id" @del-task="delTask" @recover="recover" :disabled="disabled"
+        ></todo-item>
     </div>
 </div>
-<img src="img/add.png" id="add" onclick="addTask();" alt="">
-
-<script src="js/main.js">
-</script>
+<img src="img/add.png" id="add" onclick="unfinished.add()" alt="add">
+<script src="js/main.js"></script>
 </body>
 </html>
